@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minha Lista de Techs</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Minhas Tecnologias</h2>
+        <input type="text" id="novoItem" placeholder="Ex: React, Java...">
+        <button onclick="adicionarItem()">Adicionar à Lista</button>
+        <ul id="listaNaTela"></ul>
+
+    </div>
+
+    <script>
+
+        let minhasTecnologias = ["JavaScript", "HTML", "CSS"];
+
+        function carregarInterface() {
+            let listaHtml = document.getElementById("listaNaTela");
+            listaHtml.innerHTML = "";
+
+            for (let i = 0; i < minhasTecnologias.length; i++) {
+                listaHtml.innerHTML += "<li>" + minhasTecnologias[i] + "</li>";
+            }
+        }
+        function adicionarItem() {
+            let valor = document.getElementById("novoItem").value;
+
+            minhasTecnologias.push(valor);
+
+            document.getElementById("novoItem").value = "";
+            carregarInterface();
+        }
+
+        carregarInterface();
+
+    </script>
+</body>
+
+</html>
